@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Noto Serif KR", "Noto Serif", "Times New Roman", serif;
+  --font-sans: "Noto Sans KR", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #f3efe7;
+  --color-bg-elevated: #f7f3ec;
+  --color-surface: #fffcf7;
+  --color-fg: #1c1916;
+  --color-muted: #6b645c;
+  --color-subtle: #8a8278;
+  --color-primary: #2f3b36;
+  --color-primary-fg: #f3efe7;
+  --color-accent: #3f4a3d;
+  --color-border: #e0d9ce;
+  --color-border-strong: #cfc6b8;
+  --color-ring: #3f4a3d;
+  --color-danger: #8f3d32;
+  --color-cover-0: #3f4a3d;
+  --color-cover-1: #2c3338;
+  --color-cover-2: #4a4038;
+  --color-cover-3: #3a4450;
+  --color-cover-4: #4a3c3c;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --shadow-border:
+    0 0 0 1px rgba(28, 25, 22, 0.06),
+    0 1px 2px -1px rgba(28, 25, 22, 0.06),
+    0 2px 8px 0 rgba(28, 25, 22, 0.04);
+}
+
+@layer base {
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 22%, transparent);
+    color: var(--color-fg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  header,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}
